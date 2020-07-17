@@ -66,6 +66,7 @@ Settings::Settings() :
     mDataProtocol(JackTrip::UDP),
     mNumChans(2),
     mBufferQueueLength(gDefaultQueueLength),
+    mOutputBufferQueueLength(gDefaultOutputQueueLength),
     mAudioBitResolution(AudioInterface::BIT16),
     mBindPortNum(gDefaultPort), mPeerPortNum(gDefaultPort),
     mClientName(NULL),
@@ -125,7 +126,8 @@ void Settings::parseInput(int argc, char** argv)
     { "portoffset", required_argument, NULL, 'o' }, // Port Offset from 4464
     { "bindport", required_argument, NULL, 'B' }, // Port Offset from 4464
     { "peerport", required_argument, NULL, 'P' }, // Port Offset from 4464
-    { "queue", required_argument, NULL, 'q' }, // Queue Length
+    { "receive-queue", required_argument, NULL, 'q' }, // Receive buffer queue Length
+    { "send-queue", required_argument, NULL, 'Q' }, // Send buffer queue Length
     { "redundancy", required_argument, NULL, 'r' }, // Redundancy
     { "bitres", required_argument, NULL, 'b' }, // Audio Bit Resolution
     { "zerounderrun", no_argument, NULL, 'z' }, // Use Underrun to Zeros Mode
@@ -152,7 +154,7 @@ void Settings::parseInput(int argc, char** argv)
     /// \todo Specify mandatory arguments
     int ch;
     while ( (ch = getopt_long(argc, argv,
-                              "n:N:H:sc:SC:o:B:P:q:r:b:zlwjeJ:RTd:F:p:DvVh", longopts, NULL)) != -1 )
+                              "n:N:H:sc:SC:o:B:P:q:Q:r:b:zlwjeJ:RTd:F:p:DvVh", longopts, NULL)) != -1 )
         switch (ch) {
 
         case 'n': // Number of input and output channels
@@ -233,6 +235,17 @@ void Settings::parseInput(int argc, char** argv)
                 std::exit(1); }
             else {
                 mBufferQueueLength = atoi(optarg);
+            }
+            break;
+         case 'Q': //Output buffer
+            //-------------------------------------------------------
+            if ( atoi(optarg) <= 0 ) {
+                std::cerr << "--queue ERROR: The queue has to be equal or greater than 2" << endl;
+                printUsage();
+                std::exit(1); }
+            else {
+                mOutputBufferQueueLength = atoi(optarg);
+                std::cout << "You have set the send buffer to: " << mOutputBufferQueueLength << std::endl;
             }
             break;
         case 'r':
@@ -449,6 +462,7 @@ void Settings::startJackTrip()
             udpmaster->setUnderRunMode(JackTrip::ZEROS);
         }
         udpmaster->setBufferQueueLength(mBufferQueueLength);
+        udpmaster->setOutputBufferQueueLength(mOutputBufferQueueLength);
         udpmaster->start();
 
         //---Thread Pool Test--------------------------------------------
@@ -478,7 +492,7 @@ void Settings::startJackTrip()
                          #ifdef WAIR // wair
                                  mNumNetRevChans,
                          #endif // endwhere
-                                 mBufferQueueLength, mRedundancy, mAudioBitResolution);
+                                 mBufferQueueLength, mOutputBufferQueueLength, mRedundancy, mAudioBitResolution);
 
         // Set connect or not default audio ports. Only work for jack
         mJackTrip->setConnectDefaultAudioPorts(mConnectDefaultAudioPorts);

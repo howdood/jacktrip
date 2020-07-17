@@ -87,6 +87,7 @@ UdpMasterListener::UdpMasterListener(int server_port) :
 
     mUnderRunMode = JackTrip::WAVETABLE;
     mBufferQueueLength = gDefaultQueueLength;
+    mOutputBufferQueueLength = gDefaultOutputQueueLength;
 }
 
 
@@ -195,7 +196,7 @@ void UdpMasterListener::run()
             // --------------------
             // Register JackTripWorker with the master listener
             delete mJTWorkers->at(id); // just in case the Worker was previously created
-            mJTWorkers->replace(id, new JackTripWorker(this, mBufferQueueLength, mUnderRunMode));
+            mJTWorkers->replace(id, new JackTripWorker(this, mBufferQueueLength, mOutputBufferQueueLength, mUnderRunMode));
             // redirect port and spawn listener
             cout << "JackTrip HUB SERVER: Spawning JackTripWorker..." << endl;
             {

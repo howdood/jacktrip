@@ -83,7 +83,7 @@ const int gMAX_WAIRS = 10; // jmess revision needed for string parse if > 1 digi
 const AudioInterface::audioBitResolutionT gDefaultBitResolutionMode =
         AudioInterface::BIT16;
 const int gDefaultQueueLength = 4;
-const int gDefaultOutputQueueLength = 4;
+const int gDefaultOutputQueueLength = 2;
 const uint32_t gDefaultSampleRate = 48000;
 const uint32_t gDefaultDeviceID = 0;
 const uint32_t gDefaultBufferSizeInSamples = 128;

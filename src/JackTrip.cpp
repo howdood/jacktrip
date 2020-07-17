@@ -74,6 +74,7 @@ JackTrip::JackTrip(jacktripModeT JacktripMode,
                    int NumNetRevChans,
                    #endif // endwhere
                    int BufferQueueLength,
+                   int OutputBufferQueueLength,
                    unsigned int redundancy,
                    AudioInterface::audioBitResolutionT AudioBitResolution,
                    DataProtocol::packetHeaderTypeT PacketHeaderType,
@@ -89,6 +90,7 @@ JackTrip::JackTrip(jacktripModeT JacktripMode,
     mNumNetRevChans(NumNetRevChans),
     #endif // endwhere
     mBufferQueueLength(BufferQueueLength),
+    mOutputBufferQueueLength(OutputBufferQueueLength),
     mSampleRate(gDefaultSampleRate),
     mDeviceID(gDefaultDeviceID),
     mAudioBufferSize(gDefaultBufferSizeInSamples),
@@ -271,8 +273,10 @@ void JackTrip::setupRingBuffers()
 
     switch (mUnderRunMode) {
     case WAVETABLE:
+        cout << "The receive buffer queue length is " << mBufferQueueLength << endl;
+        cout << "The send buffer queue length is " << mOutputBufferQueueLength << endl;
         mSendRingBuffer = new RingBufferWavetable(slot_size,
-                                                  gDefaultOutputQueueLength);
+                                                  mOutputBufferQueueLength);
         mReceiveRingBuffer = new RingBufferWavetable(slot_size,
                                                      mBufferQueueLength);
         /*
@@ -284,8 +288,10 @@ void JackTrip::setupRingBuffers()
 
         break;
     case ZEROS:
+        cout << "The receive buffer queue length is " << mBufferQueueLength << endl;
+        cout << "The send buffer queue length is " << mOutputBufferQueueLength << endl;
         mSendRingBuffer = new RingBuffer(slot_size,
-                                         gDefaultOutputQueueLength);
+                                         mOutputBufferQueueLength);
         mReceiveRingBuffer = new RingBuffer(slot_size,
                                             mBufferQueueLength);
         /*

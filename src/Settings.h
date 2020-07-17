@@ -90,6 +90,7 @@ private:
     JackTrip::dataProtocolT mDataProtocol; ///< Data Protocol
     int mNumChans; ///< Number of Channels (inputs = outputs)
     int mBufferQueueLength; ///< Audio Buffer from network queue length
+    int mOutputBufferQueueLength; ///< Audio Buffer to network queue length
     AudioInterface::audioBitResolutionT mAudioBitResolution;
     QString mPeerAddress; ///< Peer Address to use in jacktripModeT::CLIENT Mode
     int mBindPortNum; ///< Bind Port Number
@@ -117,6 +118,7 @@ private:
     unsigned int mSampleRate;
     unsigned int mDeviceID;
     unsigned int mAudioBufferSize;
+    unsigned int mAudioOutputBufferSize;//added by HP
     unsigned int mHubConnectionMode;
     bool mConnectDefaultAudioPorts; ///< Connect or not jack audio ports
     int mIOStatTimeout;

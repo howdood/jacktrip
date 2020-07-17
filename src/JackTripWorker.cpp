@@ -58,10 +58,11 @@
 using std::cout; using std::endl;
 
 //*******************************************************************************
-JackTripWorker::JackTripWorker(UdpMasterListener* udpmasterlistener, int BufferQueueLength, JackTrip::underrunModeT UnderRunMode) :
+JackTripWorker::JackTripWorker(UdpMasterListener* udpmasterlistener, int BufferQueueLength, int OutputBufferQueueLength, JackTrip::underrunModeT UnderRunMode) :
     mUdpMasterListener(udpmasterlistener),
     m_connectDefaultAudioPorts(false),
     mBufferQueueLength(BufferQueueLength),
+    mOutputBufferQueueLength(OutputBufferQueueLength),
     mUnderRunMode(UnderRunMode),
     mSpawning(false),
     mID(0),
@@ -151,7 +152,7 @@ void JackTripWorker::run()
                           mNumNetRevChans, FORCEBUFFERQ);
         JackTrip * mJackTrip = &jacktrip;
 #else // endwhere
-        JackTrip jacktrip(JackTrip::SERVERPINGSERVER, JackTrip::UDP, mNumChans, mBufferQueueLength);
+        JackTrip jacktrip(JackTrip::SERVERPINGSERVER, JackTrip::UDP, mNumChans, mBufferQueueLength, mOutputBufferQueueLength);
 #endif // not wair
 
 #ifdef WAIR // WAIR

@@ -108,8 +108,9 @@ void setRealtimeProcessPriority() {
     // Define constants determining how much time the audio thread can
     // use in a given time quantum.  All times are in milliseconds.
 
-    // About 128 frames @44.1KHz
-    const double kTimeQuantum = 2.9;
+    // About 128 frames @44.1KHz =2.9
+    // changed to about 64 frames @48Khz = 1.3rec by HP
+    const double kTimeQuantum = 1.333;
 
     // Time guaranteed each quantum.
     const double kAudioTimeNeeded = kGuaranteedAudioDutyCycle * kTimeQuantum;

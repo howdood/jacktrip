@@ -131,6 +131,7 @@ public:
              int NumNetRevChans = 0,
          #endif // endwhere
              int BufferQueueLength = gDefaultQueueLength,
+             int OutputBufferQueueLength = gDefaultOutputQueueLength,
              unsigned int redundancy = gDefaultRedundancy,
              AudioInterface::audioBitResolutionT AudioBitResolution =
             AudioInterface::BIT16,
@@ -198,6 +199,9 @@ public:
     /// \brief Sets (override) Buffer Queue Length Mode after construction
     virtual void setBufferQueueLength(int BufferQueueLength)
     { mBufferQueueLength = BufferQueueLength; }
+    /// \brief Sets (override) output Buffer Queue Length Mode after construction
+    virtual void setOutputBufferQueueLength(int OutputBufferQueueLength)
+    { mOutputBufferQueueLength = OutputBufferQueueLength; }
     /// \brief Sets (override) Audio Bit Resolution after construction
     virtual void setAudioBitResolution(AudioInterface::audioBitResolutionT AudioBitResolution)
     { mAudioBitResolution = AudioBitResolution; }
@@ -474,6 +478,7 @@ private:
     int mNumNetRevChans; ///< Number of Network Audio Channels (net comb filters)
 #endif // endwhere
     int mBufferQueueLength; ///< Audio Buffer from network queue length
+    int mOutputBufferQueueLength; ///< Output Buffer from network queue length
     uint32_t mSampleRate; ///< Sample Rate
     uint32_t mDeviceID; ///< RTAudio DeviceID
     uint32_t mAudioBufferSize; ///< Audio buffer size to process on each callback

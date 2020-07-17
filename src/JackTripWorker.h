@@ -70,7 +70,7 @@ class JackTripWorker : public QObject, public QRunnable
 
 public:
     /// \brief The class constructor
-    JackTripWorker(UdpMasterListener* udpmasterlistener, int BufferQueueLength = gDefaultQueueLength, JackTrip::underrunModeT UnderRunMode = JackTrip::WAVETABLE);
+    JackTripWorker(UdpMasterListener* udpmasterlistener, int BufferQueueLength = gDefaultQueueLength, int OutputBufferQueueLength = gDefaultOutputQueueLength, JackTrip::underrunModeT UnderRunMode = JackTrip::WAVETABLE);
     /// \brief The class destructor
     virtual ~JackTripWorker();
 
@@ -126,7 +126,7 @@ private:
     QMutex mMutex; ///< Mutex to protect mSpawning
     JackTrip::underrunModeT mUnderRunMode;
     int mBufferQueueLength;
-
+    int mOutputBufferQueueLength;
     int mID; ///< ID thread number
     int mNumChans; ///< Number of Channels
 #ifdef WAIR // wair

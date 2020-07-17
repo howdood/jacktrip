@@ -143,6 +143,7 @@ private:
     QMutex mMutex;
     JackTrip::underrunModeT mUnderRunMode;
     int mBufferQueueLength;
+    int mOutputBufferQueueLength;
 
     bool m_connectDefaultAudioPorts;
     Settings* m_settings;
@@ -162,7 +163,14 @@ public :
     unsigned int getHubPatch() {return mHubPatch;}
 
     void setUnderRunMode(JackTrip::underrunModeT UnderRunMode) { mUnderRunMode = UnderRunMode; }
-    void setBufferQueueLength(int BufferQueueLength) { mBufferQueueLength = BufferQueueLength; }
+    void setBufferQueueLength(int BufferQueueLength) { 
+        mBufferQueueLength = BufferQueueLength; 
+        std::cout << "UDP master has set the receive buffer queue length to " << mBufferQueueLength << " from " << BufferQueueLength << endl;
+    }
+    void setOutputBufferQueueLength(int OutputBufferQueueLength) { 
+       mOutputBufferQueueLength = OutputBufferQueueLength;
+       std::cout << "UDP master has set the send buffer queue length to " << mOutputBufferQueueLength << " from " << OutputBufferQueueLength << endl;
+    }
 };
 
 
