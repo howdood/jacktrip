@@ -110,7 +110,7 @@ void setRealtimeProcessPriority() {
 
     // About 128 frames @44.1KHz =2.9 - this is original value and default
     // changed to allow user experimentation via command line by howdood
-    if (!ktimeUser)
+    if (!kTimeUser)
         double kTimeQuantum = 2.9;
     else
         double kTimeQuantum = kTimeUser;
