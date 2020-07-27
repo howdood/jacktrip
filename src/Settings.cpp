@@ -154,7 +154,7 @@ void Settings::parseInput(int argc, char** argv)
     /// \todo Specify mandatory arguments
     int ch;
     while ( (ch = getopt_long(argc, argv,
-                              "n:N:H:sc:SC:o:B:P:q:Q:r:b:zlwjeJ:RTd:F:p:DvVh", longopts, NULL)) != -1 )
+                              "n:N:H:sc:SC:o:B:P:q:Q:k:r:b:zlwjeJ:RTd:F:p:DvVh", longopts, NULL)) != -1 )
         switch (ch) {
 
         case 'n': // Number of input and output channels
@@ -229,7 +229,7 @@ void Settings::parseInput(int argc, char** argv)
             break;
         case 'q':
             //-------------------------------------------------------
-            if ( atoi(optarg) <= 0 ) {
+            if ( atoi(optarg) <= 1 ) {
                 std::cerr << "--queue ERROR: The queue has to be equal or greater than 2" << endl;
                 printUsage();
                 std::exit(1); }
@@ -237,15 +237,26 @@ void Settings::parseInput(int argc, char** argv)
                 mBufferQueueLength = atoi(optarg);
             }
             break;
-         case 'Q': //Output buffer
+         case 'Q': //Output buffer -added by howdood
             //-------------------------------------------------------
-            if ( atoi(optarg) <= 0 ) {
+            if ( atoi(optarg) <= 1 ) {
                 std::cerr << "--queue ERROR: The queue has to be equal or greater than 2" << endl;
                 printUsage();
                 std::exit(1); }
             else {
                 mOutputBufferQueueLength = atoi(optarg);
                 std::cout << "You have set the send buffer to: " << mOutputBufferQueueLength << std::endl;
+            }
+            break;
+         case 'k': //override default kTimeQuantum -added by howdood
+            //-------------------------------------------------------
+            if ( atof(optarg) <= 0 ) {
+                std::cerr << "--kTime ERROR: The thread time quantum has to be greater than 0" << endl;
+                printUsage();
+                std::exit(1); }
+            else {
+                kTimeUser = atof(optarg);
+                std::cout << "You have set the kTime quantum to: " << kTimeUser << std::endl;
             }
             break;
         case 'r':
@@ -407,8 +418,11 @@ void Settings::printUsage()
     cout << " -H, --combfilterfeedback #               comb feedback adjustment for WAIR (default "
          << gDefaultCombFilterFeedback << ")" << endl;
 #endif // endwhere
-    cout << " -q, --queue       # (2 or more)          Queue Buffer Length, in Packet Size (default: "
+    cout << " -q, --queue       # (2 or more)          Receive queue Buffer Length, in Packet Size (default: "
          << gDefaultQueueLength << ")" << endl;
+    cout << " -Q, --queue       # (2 or more)          Send queue Buffer Length, in Packet Size (default: "
+         << gDefaultQueueLength << ")" << endl;         
+    cout << " -k       # (decimal, greater than 0)     Audio thread time quantum (default: 2.99)" << endl;      
     cout << " -r, --redundancy  # (1 or more)          Packet Redundancy to avoid glitches with packet losses (default: 1)"
          << endl;
     cout << " -o, --portoffset  #                      Receiving port offset from base port " << gDefaultPort << endl;

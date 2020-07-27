@@ -32,7 +32,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = jacktrip21.0.0
-DISTDIR = /home/howard/Downloads/jacktrip/src/.tmp/jacktrip21.0.0
+DISTDIR = /home/howard/Downloads/jacktrip2/src/.tmp/jacktrip21.0.0
 SUBTARGETS    =  \
 		release \
 		debug

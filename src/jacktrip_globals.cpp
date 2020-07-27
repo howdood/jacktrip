@@ -108,15 +108,19 @@ void setRealtimeProcessPriority() {
     // Define constants determining how much time the audio thread can
     // use in a given time quantum.  All times are in milliseconds.
 
-    // About 128 frames @44.1KHz =2.9
-    // changed to about 64 frames @48Khz = 1.3rec by HP
-    const double kTimeQuantum = 1.333;
+    // About 128 frames @44.1KHz =2.9 - this is original value and default
+    // changed to allow user experimentation via command line by howdood
+    if (!ktimeUser)
+        double kTimeQuantum = 2.9;
+    else
+        double kTimeQuantum = kTimeUser;
+    std::cerr << "Using audio time quantum of " << kTimeQuantum << "ms" << std::endl;
 
     // Time guaranteed each quantum.
-    const double kAudioTimeNeeded = kGuaranteedAudioDutyCycle * kTimeQuantum;
+    double kAudioTimeNeeded = kGuaranteedAudioDutyCycle * kTimeQuantum;
 
     // Maximum time each quantum.
-    const double kMaxTimeAllowed = kMaxAudioDutyCycle * kTimeQuantum;
+    double kMaxTimeAllowed = kMaxAudioDutyCycle * kTimeQuantum;
 
     // Get the conversion factor from milliseconds to absolute time
     // which is what the time-constraints call needs.

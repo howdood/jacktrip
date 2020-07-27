@@ -36,7 +36,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = jacktrip_debug1.0.0
-DISTDIR = /home/howard/Downloads/jacktrip/src/debug/jacktrip_debug1.0.0
+DISTDIR = /home/howard/Downloads/jacktrip2/src/debug/jacktrip_debug1.0.0
 LINK          = g++
 LFLAGS        = 
 LIBS          = $(SUBLIBS) -L/usr/local/lib -ljack -lm -lpthread /usr/lib/x86_64-linux-gnu/libQt5Network.so /usr/lib/x86_64-linux-gnu/libQt5Core.so   
@@ -279,7 +279,7 @@ compiler_moc_header_clean:
 debug/moc_DataProtocol.cpp: DataProtocol.h \
 		debug/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/howard/Downloads/jacktrip/src/debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/howard/Downloads/jacktrip/src -I/home/howard/Downloads/jacktrip/faust-src-lair/stk -I/usr/local/include -I/usr/include/x86_64-linux-gnu/c++/7 -I/home/howard/Downloads/jacktrip/faust-src-lair -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include DataProtocol.h -o debug/moc_DataProtocol.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/howard/Downloads/jacktrip2/src/debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/howard/Downloads/jacktrip2/src -I/home/howard/Downloads/jacktrip2/faust-src-lair/stk -I/usr/local/include -I/usr/include/x86_64-linux-gnu/c++/7 -I/home/howard/Downloads/jacktrip2/faust-src-lair -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include DataProtocol.h -o debug/moc_DataProtocol.cpp
 
 debug/moc_JackTrip.cpp: JackTrip.h \
 		DataProtocol.h \
@@ -292,7 +292,7 @@ debug/moc_JackTrip.cpp: JackTrip.h \
 		RingBuffer.h \
 		debug/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/howard/Downloads/jacktrip/src/debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/howard/Downloads/jacktrip/src -I/home/howard/Downloads/jacktrip/faust-src-lair/stk -I/usr/local/include -I/usr/include/x86_64-linux-gnu/c++/7 -I/home/howard/Downloads/jacktrip/faust-src-lair -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include JackTrip.h -o debug/moc_JackTrip.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/howard/Downloads/jacktrip2/src/debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/howard/Downloads/jacktrip2/src -I/home/howard/Downloads/jacktrip2/faust-src-lair/stk -I/usr/local/include -I/usr/include/x86_64-linux-gnu/c++/7 -I/home/howard/Downloads/jacktrip2/faust-src-lair -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include JackTrip.h -o debug/moc_JackTrip.cpp
 
 debug/moc_JackTripWorker.cpp: JackTripWorker.h \
 		JackTrip.h \
@@ -306,18 +306,18 @@ debug/moc_JackTripWorker.cpp: JackTripWorker.h \
 		RingBuffer.h \
 		debug/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/howard/Downloads/jacktrip/src/debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/howard/Downloads/jacktrip/src -I/home/howard/Downloads/jacktrip/faust-src-lair/stk -I/usr/local/include -I/usr/include/x86_64-linux-gnu/c++/7 -I/home/howard/Downloads/jacktrip/faust-src-lair -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include JackTripWorker.h -o debug/moc_JackTripWorker.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/howard/Downloads/jacktrip2/src/debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/howard/Downloads/jacktrip2/src -I/home/howard/Downloads/jacktrip2/faust-src-lair/stk -I/usr/local/include -I/usr/include/x86_64-linux-gnu/c++/7 -I/home/howard/Downloads/jacktrip2/faust-src-lair -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include JackTripWorker.h -o debug/moc_JackTripWorker.cpp
 
 debug/moc_JackTripWorkerMessages.cpp: JackTripWorkerMessages.h \
 		debug/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/howard/Downloads/jacktrip/src/debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/howard/Downloads/jacktrip/src -I/home/howard/Downloads/jacktrip/faust-src-lair/stk -I/usr/local/include -I/usr/include/x86_64-linux-gnu/c++/7 -I/home/howard/Downloads/jacktrip/faust-src-lair -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include JackTripWorkerMessages.h -o debug/moc_JackTripWorkerMessages.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/howard/Downloads/jacktrip2/src/debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/howard/Downloads/jacktrip2/src -I/home/howard/Downloads/jacktrip2/faust-src-lair/stk -I/usr/local/include -I/usr/include/x86_64-linux-gnu/c++/7 -I/home/howard/Downloads/jacktrip2/faust-src-lair -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include JackTripWorkerMessages.h -o debug/moc_JackTripWorkerMessages.cpp
 
 debug/moc_NetKS.cpp: NetKS.h \
 		ProcessPlugin.h \
 		debug/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/howard/Downloads/jacktrip/src/debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/howard/Downloads/jacktrip/src -I/home/howard/Downloads/jacktrip/faust-src-lair/stk -I/usr/local/include -I/usr/include/x86_64-linux-gnu/c++/7 -I/home/howard/Downloads/jacktrip/faust-src-lair -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include NetKS.h -o debug/moc_NetKS.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/howard/Downloads/jacktrip2/src/debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/howard/Downloads/jacktrip2/src -I/home/howard/Downloads/jacktrip2/faust-src-lair/stk -I/usr/local/include -I/usr/include/x86_64-linux-gnu/c++/7 -I/home/howard/Downloads/jacktrip2/faust-src-lair -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include NetKS.h -o debug/moc_NetKS.cpp
 
 debug/moc_PacketHeader.cpp: PacketHeader.h \
 		jacktrip_types.h \
@@ -326,7 +326,7 @@ debug/moc_PacketHeader.cpp: PacketHeader.h \
 		ProcessPlugin.h \
 		debug/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/howard/Downloads/jacktrip/src/debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/howard/Downloads/jacktrip/src -I/home/howard/Downloads/jacktrip/faust-src-lair/stk -I/usr/local/include -I/usr/include/x86_64-linux-gnu/c++/7 -I/home/howard/Downloads/jacktrip/faust-src-lair -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include PacketHeader.h -o debug/moc_PacketHeader.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/howard/Downloads/jacktrip2/src/debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/howard/Downloads/jacktrip2/src -I/home/howard/Downloads/jacktrip2/faust-src-lair/stk -I/usr/local/include -I/usr/include/x86_64-linux-gnu/c++/7 -I/home/howard/Downloads/jacktrip2/faust-src-lair -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include PacketHeader.h -o debug/moc_PacketHeader.cpp
 
 debug/moc_Settings.cpp: Settings.h \
 		DataProtocol.h \
@@ -340,7 +340,7 @@ debug/moc_Settings.cpp: Settings.h \
 		RingBuffer.h \
 		debug/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/howard/Downloads/jacktrip/src/debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/howard/Downloads/jacktrip/src -I/home/howard/Downloads/jacktrip/faust-src-lair/stk -I/usr/local/include -I/usr/include/x86_64-linux-gnu/c++/7 -I/home/howard/Downloads/jacktrip/faust-src-lair -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Settings.h -o debug/moc_Settings.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/howard/Downloads/jacktrip2/src/debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/howard/Downloads/jacktrip2/src -I/home/howard/Downloads/jacktrip2/faust-src-lair/stk -I/usr/local/include -I/usr/include/x86_64-linux-gnu/c++/7 -I/home/howard/Downloads/jacktrip2/faust-src-lair -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include Settings.h -o debug/moc_Settings.cpp
 
 debug/moc_ThreadPoolTest.cpp: ThreadPoolTest.h \
 		NetKS.h \
@@ -348,7 +348,7 @@ debug/moc_ThreadPoolTest.cpp: ThreadPoolTest.h \
 		JackTripWorkerMessages.h \
 		debug/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/howard/Downloads/jacktrip/src/debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/howard/Downloads/jacktrip/src -I/home/howard/Downloads/jacktrip/faust-src-lair/stk -I/usr/local/include -I/usr/include/x86_64-linux-gnu/c++/7 -I/home/howard/Downloads/jacktrip/faust-src-lair -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ThreadPoolTest.h -o debug/moc_ThreadPoolTest.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/howard/Downloads/jacktrip2/src/debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/howard/Downloads/jacktrip2/src -I/home/howard/Downloads/jacktrip2/faust-src-lair/stk -I/usr/local/include -I/usr/include/x86_64-linux-gnu/c++/7 -I/home/howard/Downloads/jacktrip2/faust-src-lair -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ThreadPoolTest.h -o debug/moc_ThreadPoolTest.cpp
 
 debug/moc_UdpDataProtocol.cpp: UdpDataProtocol.h \
 		DataProtocol.h \
@@ -358,7 +358,7 @@ debug/moc_UdpDataProtocol.cpp: UdpDataProtocol.h \
 		ProcessPlugin.h \
 		debug/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/howard/Downloads/jacktrip/src/debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/howard/Downloads/jacktrip/src -I/home/howard/Downloads/jacktrip/faust-src-lair/stk -I/usr/local/include -I/usr/include/x86_64-linux-gnu/c++/7 -I/home/howard/Downloads/jacktrip/faust-src-lair -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include UdpDataProtocol.h -o debug/moc_UdpDataProtocol.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/howard/Downloads/jacktrip2/src/debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/howard/Downloads/jacktrip2/src -I/home/howard/Downloads/jacktrip2/faust-src-lair/stk -I/usr/local/include -I/usr/include/x86_64-linux-gnu/c++/7 -I/home/howard/Downloads/jacktrip2/faust-src-lair -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include UdpDataProtocol.h -o debug/moc_UdpDataProtocol.cpp
 
 debug/moc_UdpMasterListener.cpp: UdpMasterListener.h \
 		JackTrip.h \
@@ -372,7 +372,7 @@ debug/moc_UdpMasterListener.cpp: UdpMasterListener.h \
 		RingBuffer.h \
 		debug/moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/howard/Downloads/jacktrip/src/debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/howard/Downloads/jacktrip/src -I/home/howard/Downloads/jacktrip/faust-src-lair/stk -I/usr/local/include -I/usr/include/x86_64-linux-gnu/c++/7 -I/home/howard/Downloads/jacktrip/faust-src-lair -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include UdpMasterListener.h -o debug/moc_UdpMasterListener.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/howard/Downloads/jacktrip2/src/debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/howard/Downloads/jacktrip2/src -I/home/howard/Downloads/jacktrip2/faust-src-lair/stk -I/usr/local/include -I/usr/include/x86_64-linux-gnu/c++/7 -I/home/howard/Downloads/jacktrip2/faust-src-lair -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include UdpMasterListener.h -o debug/moc_UdpMasterListener.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
