@@ -97,8 +97,6 @@ private:
     int mPeerPortNum; ///< Peer Port Number
     char* mClientName; ///< JackClient Name
     bool mUnderrrunZero; ///< Use Underrun to Zero mode
-    double kTimeUser; //allow user to play with thread time allocation (howdood)
-
 #ifdef WAIR // wair
     int mNumNetRevChans; ///< Number of Network Audio Channels (net comb filters)
     int mClientAddCombLen; ///< cmd line adjustment of net comb
@@ -125,5 +123,6 @@ private:
     int mIOStatTimeout;
     std::ofstream mIOStatStream;
 };
+
 
 #endif

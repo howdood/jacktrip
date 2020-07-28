@@ -110,10 +110,10 @@ void setRealtimeProcessPriority() {
 
     // About 128 frames @44.1KHz =2.9 - this is original value and default
     // changed to allow user experimentation via command line by howdood
-    if (!kTimeUser)
+
         double kTimeQuantum = 2.9;
-    else
-        double kTimeQuantum = kTimeUser;
+    if (kTimeUser)
+        kTimeQuantum = kTimeUser;
     std::cerr << "Using audio time quantum of " << kTimeQuantum << "ms" << std::endl;
 
     // Time guaranteed each quantum.
@@ -152,10 +152,16 @@ void setRealtimeProcessPriority() {
 //*******************************************************************************
 void setRealtimeProcessPriority()
 {
+//allow user to over-ride via 'T' flag (added by howdood)
     int priority = sched_get_priority_max(SCHED_FIFO); // 99 is the highest possible
 #ifdef __UBUNTU__
     priority = 95; // anything higher is silently ignored by Ubuntu 18.04
 #endif
+ 
+if (mRTUser)
+   priority = mRTUser;
+   
+std::cerr << "Setting scheduler priority to " << priority << std::endl;;
 
     struct sched_param sp = { .sched_priority = priority };
 

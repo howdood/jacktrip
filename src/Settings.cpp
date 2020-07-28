@@ -57,7 +57,9 @@
 using std::cout; using std::endl;
 
 int gVerboseFlag = 0;
-
+//howdood global variables (bad practice, but quick and dirty)
+double kTimeUser;
+int mRTUser;
 
 //*******************************************************************************
 Settings::Settings() :
@@ -154,7 +156,7 @@ void Settings::parseInput(int argc, char** argv)
     /// \todo Specify mandatory arguments
     int ch;
     while ( (ch = getopt_long(argc, argv,
-                              "n:N:H:sc:SC:o:B:P:q:Q:k:r:b:zlwjeJ:RTd:F:p:DvVh", longopts, NULL)) != -1 )
+                              "n:N:H:sc:SC:o:B:P:q:Q:k:t:r:b:zlwjeJ:RTd:F:p:DvVh", longopts, NULL)) != -1 )
         switch (ch) {
 
         case 'n': // Number of input and output channels
@@ -248,7 +250,8 @@ void Settings::parseInput(int argc, char** argv)
                 std::cout << "You have set the send buffer to: " << mOutputBufferQueueLength << std::endl;
             }
             break;
-         case 'k': //override default kTimeQuantum -added by howdood
+#if defined ( __MAC_OSX__ )
+         case 'k': //override OSX default kTimeQuantum -added by howdood
             //-------------------------------------------------------
             if ( atof(optarg) <= 0 ) {
                 std::cerr << "--kTime ERROR: The thread time quantum has to be greater than 0" << endl;
@@ -259,6 +262,20 @@ void Settings::parseInput(int argc, char** argv)
                 std::cout << "You have set the kTime quantum to: " << kTimeUser << std::endl;
             }
             break;
+#endif //__MAC_OSX__
+#if defined ( __LINUX__ )
+            case 't': //override default linux RT priority -added by howdood
+            //-------------------------------------------------------
+            if ( atoi(optarg) <= 0 ) {
+                std::cerr << "--ERROR: The realtime priority has to be greater than 0" << endl;
+                printUsage();
+                std::exit(1); }
+            else {
+                mRTUser = atoi(optarg);
+                std::cout << "You have set the realtime priority to: " << mRTUser << std::endl;
+            }
+            break;
+#endif //__LINUX__
         case 'r':
             //-------------------------------------------------------
             if ( atoi(optarg) <= 0 ) {
@@ -422,7 +439,8 @@ void Settings::printUsage()
          << gDefaultQueueLength << ")" << endl;
     cout << " -Q, --queue       # (2 or more)          Send queue Buffer Length, in Packet Size (default: "
          << gDefaultQueueLength << ")" << endl;         
-    cout << " -k       # (decimal, greater than 0)     Audio thread time quantum (default: 2.99)" << endl;      
+    cout << " -k       # (decimal, greater than 0)     Audio thread time quantum (default: 2.9) - OSX only" << endl;      
+    cout << " -t       # (1 or more)     Real time priority (defaults to system max) - linux only" << endl; 
     cout << " -r, --redundancy  # (1 or more)          Packet Redundancy to avoid glitches with packet losses (default: 1)"
          << endl;
     cout << " -o, --portoffset  #                      Receiving port offset from base port " << gDefaultPort << endl;

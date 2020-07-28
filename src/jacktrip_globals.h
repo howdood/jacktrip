@@ -136,7 +136,10 @@ void setRealtimeProcessPriority();
 //@{
 /// Maximum Threads that can be run at the same time
 const int gMaxThreads = 290; // some pthread limit around 297?
-
+/// User RT priority (linux)
+extern int mRTUser;
+/// User ktime quantum (OSX)
+extern double kTimeUser;
 /// Public well-known UDP port to where the clients will connect
 const int gServerUdpPort = 4464;
 //@}
